@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BirdScript : MonoBehaviour
@@ -20,6 +21,12 @@ public class BirdScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) == true && birdIsAlive) {
             myRigidBody.velocity = Vector2.up * flapStrenght;
+        }
+
+        if (transform.position.y < -17.4 || transform.position.y > 17.4)
+        {
+            logic.gameOver();
+            birdIsAlive = false;
         }
     }
 
