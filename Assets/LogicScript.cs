@@ -9,14 +9,23 @@ public class LogicScript : MonoBehaviour
     public Text scoreText;
     public GameObject gameOverScreen;
     public GameObject bird;
+    [SerializeField] private AudioClip dingClip;
+    private AudioSource audioSource;
 
     [ContextMenu("Increase Score")]
+
+    public void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void addScore(int scoreToAdd)
     {
         if (bird.GetComponent<BirdScript>().birdIsAlive)
         {
             playerScore += scoreToAdd;
             scoreText.text = playerScore.ToString();
+            audioSource.clip = dingClip;
+            audioSource.Play();
         }
 
     }
