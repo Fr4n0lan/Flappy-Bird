@@ -9,10 +9,9 @@ public class LogicScript : MonoBehaviour
     public Text scoreText;
     public GameObject gameOverScreen;
     public GameObject bird;
-    [SerializeField] private AudioClip dingClip;
+    public AudioClip dingClip;
+    public AudioClip gameOverClip;
     private AudioSource audioSource;
-
-    [ContextMenu("Increase Score")]
 
     public void Start()
     {
@@ -37,6 +36,9 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver()
     {
+        Debug.Log("Died");
         gameOverScreen.SetActive(true);
+        audioSource.clip = gameOverClip;
+        audioSource.Play();
     }
 }
