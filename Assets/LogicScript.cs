@@ -34,6 +34,11 @@ public class LogicScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void startGame()
+    {
+        SceneManager.LoadScene("Game");
+    }
+
     public void gameOver()
     {
         Debug.Log("Died");
